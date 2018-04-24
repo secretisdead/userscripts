@@ -12,9 +12,9 @@
 	'use strict';
 
 	let keys = {
-		reload: 'ArrowUp',
-		whiteflute: 'ArrowLeft',
-		blackflute: 'ArrowRight',
+		reload: ['ArrowUp', 'w'],
+		whiteflute: ['ArrowLeft', 'a'],
+		blackflute: ['ArrowRight', 'd'],
 	};
 
 	let debounce = {
@@ -30,17 +30,17 @@
 	};
 
 	window.addEventListener('keydown', function(e) {
-		if (keys.reload == e.key) {
+		if (keys.reload.includes(e.key)) {
 			if (debounce.reload) return;
 			debounce.reload = true;
 			buttons.reload.click();
 		}
-		else if (keys.whiteflute == e.key) {
+		else if (keys.whiteflute.includes(e.key)) {
 			if (debounce.whiteflute) return;
 			debounce.whiteflute = true;
 			buttons.whiteflute.click();
 		}
-		else if (keys.blackflute == e.key) {
+		else if (keys.blackflute.includes(e.key)) {
 			if (debounce.blackflute) return;
 			debounce.blackflute = true;
 			buttons.blackflute.click();
@@ -48,8 +48,8 @@
 	});
 
 	window.addEventListener('keyup', function(e) {
-		if (keys.reload == e.key) debounce.reload = false;
-		else if (keys.whiteflute == e.key) debounce.whiteflute = false;
-		else if (keys.blackflute == e.key) debounce.blackflute = false;
+		if (keys.reload.includes(e.key)) debounce.reload = false;
+		else if (keys.whiteflute.includes(e.key)) debounce.whiteflute = false;
+		else if (keys.blackflute.includes(e.key)) debounce.blackflute = false;
 	});
 })();
